@@ -1,3 +1,5 @@
+// 鉴权中间件
+
 import jwt from 'jsonwebtoken';
 
 export default async (c, next) => {

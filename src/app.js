@@ -1,8 +1,9 @@
 // Hono主入口
 
 import { Hono } from 'hono';
-import authMiddleware from './utils/auth.js';
-import questionRoute from './controllers/question.js';
+import authMiddleware from './middleware/auth.js';
+import qaRoutes from './routes/qaRoutes.js';
+import statusRoutes from './routes/statusRoutes.js';
 
 const app = new Hono();
 
@@ -10,7 +11,7 @@ const app = new Hono();
 app.use('*', authMiddleware);
 
 // 模块路由
-app.route('/status', statusRoute);    // 用户状态管理
-app.route('/qa', questionRoute);       // 问答服务
+app.route('/status', statusRoutes);    // 用户状态管理
+app.route('/qa', qaRoutes);        // 问答服务
 
 export default app;

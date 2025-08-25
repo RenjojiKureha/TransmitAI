@@ -1,3 +1,5 @@
+// 问答服务核心流程
+
 import { OpenAI } from 'openai';
 import { getChatHistory, saveChatRecord } from '../services/qaService.js';
 
