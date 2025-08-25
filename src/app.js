@@ -1,3 +1,5 @@
+// Hono主入口
+
 import { Hono } from 'hono';
 import authMiddleware from './utils/auth.js';
 import questionRoute from './controllers/question.js';
