@@ -1,14 +1,14 @@
 import mongoose from "mongoose";
-
 const { Schema, model } = mongoose;
 
-// 提示模板集合 Schema
+// 定义 Prompt 模板数据结构 (Schema)
 const promptTemplateSchema = new Schema({
-  name: { type: String, required: true },     // 模板名称
-  systemPrompt: String,                       // 系统角色设定文本
-  contextRules: [String],                     // 上下文处理规则
-  maxTokens: Number,                          // 最大token限制
-  temperature: Number                         // 生成温度参数
+  name: { type: String, required: true, unique: true }, // 模板的唯一名称
+  systemPrompt: String,                                 // 系统级提示，用于设定AI的角色和行为
+  contextRules: [String],                               // 定义如何处理上下文的规则列表
+  maxTokens: Number,                                    // 调用模型时建议的最大 token 限制
+  temperature: Number                                   // 调用模型时建议的温度参数（控制创造性）
 });
 
+// 根据 Schema 创建并导出 PromptTemplate 模型
 export const PromptTemplate = model("PromptTemplate", promptTemplateSchema);
